@@ -1,0 +1,21 @@
+[package]
+name = "x0"
+version = "0.1.0"
+authors = ["Arvid E. Picciani <aep@exys.org>"]
+
+[dependencies]
+bs58 = "0.2"
+crc8 = "0.1"
+der-parser = "0.5"
+ed25519-dalek = "^0.6"
+futures = "0.1.21"
+h2 = "0.1"
+http = "0.1"
+hyper = "0.12"
+log = "0.4"
+nom =  "3.1"
+openssl = "0.10.10"
+sha2 = "0.7"
+tokio = "0.1.7"
+tokio-openssl = "0.2"
+url = "1.7"
