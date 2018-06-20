@@ -54,7 +54,7 @@ impl ClientBuilder {
     pub fn build(self) -> impl Future<
         Item = (
         Identity,
-        Client<IoConnector<tokio_openssl::SslStream<TcpStream>>, Body>,
+        tokio_openssl::SslStream<TcpStream>
         ),
         Error = std::io::Error,
         > {
@@ -91,14 +91,7 @@ impl ClientBuilder {
                 let pkey = pkey.public_key_to_der().unwrap();
                 let identity = Identity::from_public_der(&pkey).unwrap();
 
-                let connector = IoConnector {
-                    inner: std::sync::Mutex::new(Some(socket)),
-                };
-
-                let client = Client::builder()
-                    .http2_only(true)
-                    .build::<_, Body>(connector);
-                Ok((identity, client))
+                Ok((identity, socket))
             });
 
         hello

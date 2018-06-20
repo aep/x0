@@ -11,6 +11,7 @@ pub enum Algo {
     Ed25519 = 0x9,
 }
 
+#[derive(Clone)]
 pub struct Identity {
     algo:    Algo,
     secret:  Vec<u8>,
